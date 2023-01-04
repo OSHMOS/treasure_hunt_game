@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mx-auto my-5">
+  <div class="row">
+    <div class="col-12 col-lg-4 col-md-2 col-sm-12"></div>
+    <div class="col-12 col-lg-4 col-md-8 col-sm-12">
+      <div class="card" id="main">
+        <div class="card-body mt-4 mb-1">
+          <h2>주고 싶은 또는 받고 싶은</h2>
+          <h2><b>선물</b>을</h2>
+          <h2>입력해주세요.</h2>
+          <br>
+          <form class="post-form" method="POST" action={% url 'create' %}>
+            {% csrf_token %}
+            {% if form.errors %}
+            <div class="alert alert-danger" role="alert">
+            {% for field in form %}
+                {% if field.errors %}
+                <strong>{{field.label}}</strong>
+                {{field.errors}}
+                {% endif %}
+            {% endfor %}
+            </div>
+            {% endif %}
+            <div class="form-gruop">
+              <input type="text" class="form-control" name="author" placeholder='당신은 누구신가요?'>
+              <br>
+              <textarea class="form-control" name="present" placeholder='받고 싶은 게 없다면 편지를 적어도 되고, &#13;&#10;제가 줄 수 있는 선물은 1만원 내외입니다.'></textarea>
+            </div>
+            <div class="d-flex justify-content-end">
+              <input id="submit" type="submit" class="btn btn-primary mt-3 design" value="보내기"/>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4 col-md-2 col-sm-12"></div>
+  </div>
+</div>
+{% endblock %}
