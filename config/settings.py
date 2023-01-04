@@ -26,7 +26,9 @@ SECRET_KEY = 'django-insecure-y_h5-3h%))d9^ll%kb%9d@hiiu-ebtq-l44dx(!8g49%lbr_56
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'treasurehuntgame.pythonanywhere.com'
+]
 
 
 # Application definition
